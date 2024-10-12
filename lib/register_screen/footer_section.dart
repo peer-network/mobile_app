@@ -9,40 +9,37 @@ class FooterSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Forgot Password Text
+        // Forgot Password Link
         GestureDetector(
           onTap: () {
-            // Handle Forgot Password click
-            Navigator.pushNamed(context, '/forgot-password'); // Assuming the route exists
+            // Navigate to Forgot Password page
+            Navigator.pushNamed(context, '/forgot-password'); // Ensure this route exists
           },
           child: const Text(
-            'Forgot password',
+            'Forgot password?',
             style: TextStyle(
               fontFamily: 'Inter',
               fontSize: 12,
-              color: Color(0xFFFFFAFA), // Text color (white)
+              color: Color(0xFFFFFAFA), // White text
               fontWeight: FontWeight.w400,
             ),
           ),
         ),
         const SizedBox(height: 16), // Spacing between footer items
 
-        // The PEER principle Text
+        // The PEER Principle Link
         GestureDetector(
           onTap: () {
-            // Handle PEER principle click (add the relevant navigation or action)
+            // Handle PEER Principle action
+            // You can navigate or show a modal with more information
           },
-          child: const SizedBox(
-            height: 64,
-            child: const Text(
-              'The PEER principle',
-              style: TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 12,
-                color: Color(0xFFFFFAFA), // Text color (white)
-                fontWeight: FontWeight.w400,
-                
-              ),
+          child: const Text(
+            'The PEER principle',
+            style: TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 12,
+              color: Color(0xFFFFFAFA), // White text
+              fontWeight: FontWeight.w400,
             ),
           ),
         ),

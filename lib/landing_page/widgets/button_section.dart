@@ -8,10 +8,11 @@ class ButtonSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch, // Make buttons take the full width
       children: [
-        // Primary Button (e.g., Sign Up)
+        // Primary Button (Sign Up)
         ElevatedButton(
           onPressed: () {
-            // Handle sign-up button press
+            // Navigate to the Register screen
+            Navigator.pushNamed(context, 'C:\Users\test\Desktop\Dev\mobile_app\peer_app\lib\register_screen\register_screen.dart');
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF127EFC), // Button background color
@@ -32,10 +33,10 @@ class ButtonSection extends StatelessWidget {
         ),
         const SizedBox(height: 24), // Spacing between buttons
 
-        // Secondary Button (e.g., Log In)
+        // Secondary Button (Log In)
         OutlinedButton(
           onPressed: () {
-            // Handle log-in button press
+            // Handle log-in button press (for example, navigating to login)
           },
           style: OutlinedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 16),
