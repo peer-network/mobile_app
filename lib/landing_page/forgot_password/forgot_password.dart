@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:peer_app/landing_page/register_screen/logo_section.dart';
 
 class ForgotPasswordErrorScreen extends StatelessWidget {
-  const ForgotPasswordErrorScreen({Key? key}) : super(key: key);
+  const ForgotPasswordErrorScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class ForgotPasswordErrorScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Peer Logos
-            Center(
+            const Center(
               child: LogoSection(
                 width: 393,
                 height: 200,
@@ -109,8 +109,8 @@ class ForgotPasswordErrorScreen extends StatelessWidget {
             const SizedBox(height: 16),
 
             // Footer Section
-            Column(
-              children: const [
+            const Column(
+              children: [
                 Text(
                   "The PEER Principle",
                   style: TextStyle(
