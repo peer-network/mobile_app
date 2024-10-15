@@ -43,7 +43,28 @@ class FooterSection extends StatelessWidget {
             ),
           ),
         ),
+
+         const SizedBox(height: 16),
+
+         
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/landing'); // Ensure this route exists
+          },
+        
+          child: const Text(
+            'back to landing page',
+            style: TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 12,
+              color: Color(0xFFFFFAFA), // White text
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+        
       ],
+      
     );
   }
 }

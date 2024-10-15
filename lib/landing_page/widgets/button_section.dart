@@ -12,7 +12,7 @@ class ButtonSection extends StatelessWidget {
         ElevatedButton(
           onPressed: () {
             // Navigate to the Register screen
-            Navigator.pushNamed(context, 'C:\Users\test\Desktop\Dev\mobile_app\peer_app\lib\register_screen\register_screen.dart');
+            Navigator.pushNamed(context, '/register');
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF127EFC), // Button background color

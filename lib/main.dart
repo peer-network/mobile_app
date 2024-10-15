@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const LandingPage(), // Set the LandingPage as the home screen
     routes: {
-        'C:\Users\test\Desktop\Dev\mobile_app\peer_app\lib\register_screen\register_screen.dart': (context) => const RegisterScreen(),
+        '/register': (context) => const RegisterScreen(),
+        '/landing': (context) => const LandingPage(),
   }
     );
     
