@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/forgot_password/forgot_password.dart';
-import 'package:peer_app/register_screen/register_screen.dart';
+import 'package:peer_app/landing_page/forgot_password/forgot_password.dart';
+import 'package:peer_app/landing_page/register_screen/register_screen.dart';
 import 'landing_page/landing page/landing_page.dart'; // Import the landing page
 
 void main() {

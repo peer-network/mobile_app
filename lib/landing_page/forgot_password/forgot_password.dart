@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/register_screen/logo_section.dart';
+import 'package:peer_app/landing_page/register_screen/logo_section.dart';
 
 class ForgotPasswordErrorScreen extends StatelessWidget {
   const ForgotPasswordErrorScreen({Key? key}) : super(key: key);
