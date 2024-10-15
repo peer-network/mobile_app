@@ -9,23 +9,7 @@ class FooterSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Forgot Password Link
-        GestureDetector(
-          onTap: () {
-            // Navigate to Forgot Password page
-            Navigator.pushNamed(context, '/forgot-password'); // Ensure this route exists
-          },
-          child: const Text(
-            'Forgot password?',
-            style: TextStyle(
-              fontFamily: 'Inter',
-              fontSize: 12,
-              color: Color(0xFFFFFAFA), // White text
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-        ),
-        const SizedBox(height: 16), // Spacing between footer items
+        
 
         // The PEER Principle Link
         GestureDetector(
