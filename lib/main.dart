@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:peer_app/register_screen/register_screen.dart';
-import 'landing_page/landing_page.dart'; // Import the landing page
+import 'package:peer_app/landing_page/forgot_password/forgot_password.dart';
+import 'package:peer_app/landing_page/login/login.dart';
+
+import 'package:peer_app/landing_page/peer_principle/principle.dart';
+import 'package:peer_app/landing_page/register_screen/register_screen.dart';
+import 'landing_page/landing page/landing_page.dart'; // Import the landing page
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +21,9 @@ class MyApp extends StatelessWidget {
     routes: {
         '/register': (context) => const RegisterScreen(),
         '/landing': (context) => const LandingPage(),
+        '/forgot': (context) => const ForgotPasswordErrorScreen(),
+        '/principle': (context) => PeerPrinciplePage(),
+        '/login': (context) => LoginPage(),
   }
     );
     

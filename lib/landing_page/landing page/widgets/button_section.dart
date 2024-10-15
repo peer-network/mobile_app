@@ -36,7 +36,9 @@ class ButtonSection extends StatelessWidget {
         // Secondary Button (Log In)
         OutlinedButton(
           onPressed: () {
+            //print('Login button pressed');
             // Handle log-in button press (for example, navigating to login)
+            Navigator.pushNamed(context, '/login');
           },
           style: OutlinedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 16),

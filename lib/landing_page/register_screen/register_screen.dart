@@ -17,7 +17,7 @@ class RegisterScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              LogoSection(), // The Peer logos
+              LogoSection(height: 293, width: 103,), // The Peer logos
               SizedBox(height: 48), // Spacing between logo and inputs
               InputSection(), // Input fields
               SizedBox(height: 24), // Spacing between inputs and buttons
