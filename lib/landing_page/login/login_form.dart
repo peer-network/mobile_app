@@ -31,42 +31,92 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          TextFormField(
-            controller: _emailController,
-            decoration: InputDecoration(
-              labelText: 'Email or Username',
-            ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your email or username';
-              }
-              return null;
-            },
+    return Center(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        width: 393,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Email input
+              Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xFF2E2E2E),  // Background color of input
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: const Color(0xFF127EFC), width: 2), // Border color and width
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                child: TextFormField(
+                  controller: _emailController,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    labelText: 'Email or Username',
+                    labelStyle: TextStyle(color: Color(0xFFBABABA)),  // Text color
+                  ),
+                  style: const TextStyle(color: Colors.white),  // Input text color
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email or username';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              // Password input
+              Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xFF2E2E2E),  // Background color of input
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: const Color(0xFF127EFC), width: 2),  // Border color and width
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                child: TextFormField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    labelText: 'Password',
+                    labelStyle: TextStyle(color: Color(0xFFBABABA)),  // Text color
+                  ),
+                  style: const TextStyle(color: Colors.white),  // Input text color
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your password';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              // Login Button
+              ElevatedButton(
+                onPressed: _handleLogin,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF127EFC),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),  // Rounded corners
+                  ),
+                  minimumSize: const Size(345, 40),  // Button size
+                ),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 24),
-          TextFormField(
-            controller: _passwordController,
-            decoration: InputDecoration(
-              labelText: 'Password',
-            ),
-            obscureText: true,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your password';
-              }
-              return null;
-            },
-          ),
-          const SizedBox(height: 24),
-          ElevatedButton(
-            onPressed: _handleLogin,
-            child: const Text('Login'),
-          ),
-        ],
+        ),
       ),
     );
   }
