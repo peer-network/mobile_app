@@ -30,6 +30,8 @@ class FooterSection extends StatelessWidget {
         // The PEER principle Text
         GestureDetector(
           onTap: () {
+Navigator.pushNamed(context, '/principle');
+
             // Handle PEER principle click (add the relevant navigation or action)
           },
           child: const SizedBox(
