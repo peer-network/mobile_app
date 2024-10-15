@@ -13,7 +13,7 @@ class FooterSection extends StatelessWidget {
         GestureDetector(
           onTap: () {
             // Handle Forgot Password click
-            Navigator.pushNamed(context, '/forgot-password'); // Assuming the route exists
+            Navigator.pushNamed(context, '/forgot'); // Assuming the route exists
           },
           child: const Text(
             'Forgot password',

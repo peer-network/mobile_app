@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LogoSection extends StatelessWidget {
-  const LogoSection({Key? key}) : super(key: key);
+  const LogoSection({Key? key, required int height, required int width}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
