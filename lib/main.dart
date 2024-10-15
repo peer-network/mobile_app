@@ -4,6 +4,7 @@ import 'package:peer_app/landing_page/login/login.dart';
 
 import 'package:peer_app/landing_page/peer_principle/principle.dart';
 import 'package:peer_app/landing_page/register_screen/register_screen.dart';
+import 'package:peer_app/newsfeed/newsfeed.dart';
 import 'landing_page/landing page/landing_page.dart'; // Import the landing page
 
 void main() {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/forgot': (context) => const ForgotPasswordErrorScreen(),
         '/principle': (context) => PeerPrinciplePage(),
         '/login': (context) => LoginPage(),
+        '/newsfeed': (context) => NewsFeed(),
   }
     );
     

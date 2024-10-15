@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FooterSection extends StatelessWidget {
-  const FooterSection({Key? key}) : super(key: key);
+  const FooterSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ Navigator.pushNamed(context, '/principle');
           },
           child: const SizedBox(
             height: 64,
-            child: const Text(
+            child: Text(
               'The PEER principle',
               style: TextStyle(
                 fontFamily: 'Inter',
