@@ -5,6 +5,7 @@ import 'package:peer_app/newsfeed/post_footer.dart';
 import 'package:peer_app/newsfeed/post_divider.dart';
 import 'package:peer_app/newsfeed/post_stats.dart';
 import 'package:peer_app/newsfeed/post_interactions.dart';
+import 'package:peer_app/newsfeed/bottom_bar.dart';
 
 class NewsFeed extends StatelessWidget {
   const NewsFeed({Key? key}) : super(key: key);
@@ -13,7 +14,16 @@ class NewsFeed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('News Feed'),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        title: const Text(
+          'News Feed',
+          style: TextStyle(
+          color: Colors.white,
+          )
+          ),
+        
         backgroundColor: const Color(0xFF252525),
       ),
       backgroundColor: const Color(0xFF252525),
@@ -26,6 +36,7 @@ class NewsFeed extends StatelessWidget {
             onFollowTap: () {
               print('Follow button tapped');
             },
+              backgroundImage: AssetImage('PeerSignet_Color_RGB.png'), // Add this line
           ),
           PostContent(
             title: 'A Day in the Life',
@@ -55,6 +66,7 @@ class NewsFeed extends StatelessWidget {
             onFollowTap: () {
               print('Follow button tapped');
             },
+            backgroundImage: AssetImage('PeerSignet_Color_RGB.png'),
           ),
           PostContent(
             title: 'Exploring the Mountains',
@@ -80,6 +92,9 @@ class NewsFeed extends StatelessWidget {
           // Add more posts here in the same structure
         ],
       ),
+      bottomNavigationBar: BottomNavBar(context),
     );
   }
 }
+
+

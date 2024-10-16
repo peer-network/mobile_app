@@ -6,6 +6,10 @@ import 'package:peer_app/landing_page/login/login_page.dart';
 import 'package:peer_app/landing_page/peer_principle/principle.dart';
 import 'package:peer_app/landing_page/register_screen/register_screen.dart';
 import 'package:peer_app/newsfeed/newsfeed.dart';
+import 'package:peer_app/screens/chats.dart';
+import 'package:peer_app/screens/create_post.dart';
+import 'package:peer_app/screens/profile.dart';
+import 'package:peer_app/screens/wallet.dart';
 import 'landing_page/landing page/landing_page.dart'; // Import the landing page
 
 void main() {
@@ -27,6 +31,11 @@ class MyApp extends StatelessWidget {
         '/principle': (context) => PeerPrinciplePage(),
         '/login': (context) => LoginPage(),
         '/newsfeed': (context) => NewsFeed(),
+        '/wallet': (context) => WalletScreen(),
+        '/posting': (context) => PostingScreen(),
+        '/chats': (context) => ChatsScreen(),
+        '/profile': (context) => ProfileScreen(),
+
   }
     );
     

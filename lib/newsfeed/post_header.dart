@@ -9,7 +9,7 @@ class PostHeader extends StatelessWidget {
     Key? key,
     required this.username,
     required this.profileImageUrl,
-    required this.onFollowTap,
+    required this.onFollowTap, required AssetImage backgroundImage,
   }) : super(key: key);
 
   @override
