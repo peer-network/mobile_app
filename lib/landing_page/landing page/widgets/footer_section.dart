@@ -9,17 +9,13 @@ class FooterSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Forgot Password Text
-        
         // The PEER principle Text
         GestureDetector(
           onTap: () {
-Navigator.pushNamed(context, '/principle');
-
-            // Handle PEER principle click (add the relevant navigation or action)
+            Navigator.pushNamed(context, '/principle');
           },
           child: const SizedBox(
-            height: 64,
+            height: 32,
             child: Text(
               'The PEER principle',
               style: TextStyle(
@@ -27,8 +23,23 @@ Navigator.pushNamed(context, '/principle');
                 fontSize: 12,
                 color: Color(0xFFFFFAFA), // Text color (white)
                 fontWeight: FontWeight.w400,
-                
               ),
+            ),
+          ),
+        ),
+
+        // Verify Account Text
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/verify');
+          },
+          child: const Text(
+            'verify account',
+            style: TextStyle(
+              fontFamily: 'Inter',
+              fontSize: 12,
+              color: Color(0xFFFFFAFA), // Text color (white)
+              fontWeight: FontWeight.w400,
             ),
           ),
         ),

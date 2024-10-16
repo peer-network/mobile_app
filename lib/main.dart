@@ -8,7 +8,9 @@ import 'package:peer_app/screens/chats.dart';
 import 'package:peer_app/screens/create_post.dart';
 import 'package:peer_app/screens/profile.dart';
 import 'package:peer_app/screens/wallet.dart';
+import 'package:peer_app/landing_page/verify/verify.dart';
 import 'landing_page/landing page/landing_page.dart'; // Import the landing page
+
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +35,7 @@ class MyApp extends StatelessWidget {
         '/posting': (context) => PostingScreen(),
         '/chats': (context) => ChatsScreen(),
         '/profile': (context) => ProfileScreen(),
+        '/verify': (context) => VerifyScreen(),
 
   }
     );
