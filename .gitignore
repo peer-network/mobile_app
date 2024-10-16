@@ -46,3 +46,6 @@ app.*.map.json
 
 #.keystore file 
 *.keystore
+
+#VS-Code related
+.vscode/*
