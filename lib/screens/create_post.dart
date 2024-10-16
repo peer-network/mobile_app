@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart'; // For image picking
+import 'package:image_picker/image_picker.dart';
+import 'package:peer_app/newsfeed/bottom_bar.dart'; // For image picking
 
 class PostingScreen extends StatefulWidget {
   const PostingScreen({super.key});
@@ -72,11 +73,17 @@ class _PostingScreenState extends State<PostingScreen> {
 
   // Add a tag (for hashtags or mentions)
   void _addTag(String tag) {
+    tag = tag.trim(); // Trim any surrounding whitespace
     if (tag.isNotEmpty && !_tags.contains(tag)) {
       setState(() {
         _tags.add(tag);
       });
     }
+  }
+
+  // Determine if post can be submitted
+  bool get _canSubmitPost {
+    return _postController.text.isNotEmpty || _image != null;
   }
 
   @override
@@ -96,7 +103,7 @@ class _PostingScreenState extends State<PostingScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.send),
-            onPressed: _submitPost,
+            onPressed: _canSubmitPost ? _submitPost : null, // Disable button if post is empty
             tooltip: 'Submit Post',
           ),
         ],
@@ -169,10 +176,13 @@ class _PostingScreenState extends State<PostingScreen> {
                 ? Stack(
                     alignment: Alignment.topRight,
                     children: [
-                      Image.file(
-                        File(_image!.path),
-                        height: 200,
-                        fit: BoxFit.cover,
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.file(
+                          File(_image!.path),
+                          height: 200,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       IconButton(
                         icon: const Icon(Icons.cancel, color: Colors.red),
@@ -214,6 +224,8 @@ class _PostingScreenState extends State<PostingScreen> {
               children: _tags.map((tag) {
                 return Chip(
                   label: Text(tag),
+                  deleteIconColor: Colors.white,
+                  backgroundColor: const Color(0xFF127EFC),
                   onDeleted: () {
                     setState(() {
                       _tags.remove(tag);
@@ -239,6 +251,7 @@ class _PostingScreenState extends State<PostingScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavBar(context),
     );
   }
 }

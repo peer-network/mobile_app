@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/newsfeed/bottom_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -6,7 +7,9 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF252525), // Dark background color
       appBar: AppBar(
+        backgroundColor: const Color(0xFF2E2E2E), // Dark header color
         title: const Text('Profile'),
         actions: [
           IconButton(
@@ -37,11 +40,18 @@ class ProfileScreen extends StatelessWidget {
             // Display Name and Username
             const Text(
               'Pamela Jones',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white, // White text
+              ),
             ),
             const Text(
               '@pamela_jones',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              style: TextStyle(
+                fontSize: 16,
+                color: Color(0xFFBABABA), // Grey color for secondary text
+              ),
             ),
 
             const SizedBox(height: 20),
@@ -52,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
               child: Text(
                 'Flutter developer, tech enthusiast, and coffee lover. Sharing my coding journey with the world!',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16, color: Colors.white), // White bio text
               ),
             ),
 
@@ -73,7 +83,7 @@ class ProfileScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            const Divider(),
+            const Divider(color: Color(0xFFBABABA)), // Light divider color
 
             // Recent Posts Section
             const Padding(
@@ -82,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Recent Posts',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
@@ -108,6 +118,7 @@ class ProfileScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavBar(context),
     );
   }
 
@@ -117,11 +128,18 @@ class ProfileScreen extends StatelessWidget {
       children: [
         Text(
           count,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.white, // White stat numbers
+          ),
         ),
         Text(
           label,
-          style: const TextStyle(fontSize: 16, color: Colors.grey),
+          style: const TextStyle(
+            fontSize: 16,
+            color: Color(0xFFBABABA), // Grey text for labels
+          ),
         ),
       ],
     );
@@ -136,13 +154,17 @@ class ProfileScreen extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white, // White title for posts
+            ),
           ),
           const SizedBox(height: 5),
-          Text(date, style: const TextStyle(color: Colors.grey)),
+          Text(date, style: const TextStyle(color: Color(0xFFBABABA))), // Grey date text
           const SizedBox(height: 10),
-          Text(content),
-          const Divider(),
+          Text(content, style: const TextStyle(color: Colors.white)), // White content text
+          const Divider(color: Color(0xFFBABABA)), // Light divider between posts
         ],
       ),
     );

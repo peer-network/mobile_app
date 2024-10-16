@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/newsfeed/bottom_bar.dart';
 
 class WalletScreen extends StatelessWidget {
   final double _balance = 150.75; // Example balance
@@ -24,7 +25,7 @@ class WalletScreen extends StatelessWidget {
     // Add more transactions here
   ];
 
-   WalletScreen({super.key});
+  WalletScreen({super.key});
 
   // Function to handle adding funds
   void _addFunds(BuildContext context) {
@@ -44,8 +45,12 @@ class WalletScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wallet'),
+        backgroundColor: const Color(0xFF2E2E2E),
+        title: const Text('Wallet', style: TextStyle(color: Colors.white)),
+        elevation: 10,
+        shadowColor: Colors.black.withOpacity(0.25),
       ),
+      backgroundColor: const Color(0xFF252525), // Background color for the wallet screen
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -64,13 +69,19 @@ class WalletScreen extends StatelessWidget {
                   icon: const Icon(Icons.add),
                   label: const Text('Add Funds'),
                   onPressed: () => _addFunds(context),
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF127EFC), // Button color matching the design
+                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                  ),
                 ),
                 ElevatedButton.icon(
                   icon: const Icon(Icons.remove),
                   label: const Text('Withdraw'),
                   onPressed: () => _withdrawFunds(context),
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFFF5F5F), // Red button for withdraw
+                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                  ),
                 ),
               ],
             ),
@@ -80,7 +91,11 @@ class WalletScreen extends StatelessWidget {
             // Transaction History Title
             const Text(
               'Transaction History',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.white, // White text to match the dark background
+              ),
             ),
 
             const SizedBox(height: 10),
@@ -92,6 +107,7 @@ class WalletScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavBar(context),
     );
   }
 
@@ -100,15 +116,27 @@ class WalletScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20.0),
       decoration: BoxDecoration(
-        color: Colors.blueAccent,
+        color: const Color(0xFF0B4D99), // A darker blue shade for the balance section
         borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.25),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             'Current Balance',
-            style: TextStyle(color: Colors.white, fontSize: 18),
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              fontFamily: 'Inter',
+            ),
           ),
           const SizedBox(height: 10),
           Text(
@@ -117,6 +145,7 @@ class WalletScreen extends StatelessWidget {
               color: Colors.white,
               fontSize: 32,
               fontWeight: FontWeight.bold,
+              fontFamily: 'Inter',
             ),
           ),
         ],
@@ -130,11 +159,16 @@ class WalletScreen extends StatelessWidget {
       itemCount: _transactions.length,
       itemBuilder: (context, index) {
         return Card(
+          color: const Color(0xFF2E2E2E),
           margin: const EdgeInsets.symmetric(vertical: 8.0),
           child: ListTile(
-            title: Text(_transactions[index]['type']),
+            title: Text(
+              _transactions[index]['type'],
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+            ),
             subtitle: Text(
               '${_transactions[index]['date']} - ${_transactions[index]['status']}',
+              style: const TextStyle(color: Color(0xFFBABABA)),
             ),
             trailing: Text(
               _transactions[index]['amount'] > 0
