@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:peer_app/landing_page/forgot_password/forgot_password.dart';
 import 'package:peer_app/landing_page/login/login_page.dart';
-
-
 import 'package:peer_app/landing_page/peer_principle/principle.dart';
 import 'package:peer_app/landing_page/register_screen/register_screen.dart';
 import 'package:peer_app/newsfeed/newsfeed.dart';
-import 'package:peer_app/screens/chats.dart';
+import 'package:peer_app/screens/chats.dart'; 
 import 'package:peer_app/screens/create_post.dart';
 import 'package:peer_app/screens/profile.dart';
 import 'package:peer_app/screens/wallet.dart';
