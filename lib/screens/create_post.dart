@@ -1,7 +1,6 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart'; // Add this dependency for image picking
+import 'package:image_picker/image_picker.dart'; // For image picking
 
 class PostingScreen extends StatefulWidget {
   const PostingScreen({super.key});
@@ -18,10 +17,9 @@ class _PostingScreenState extends State<PostingScreen> {
   String _privacy = 'Public'; // Default privacy setting
   final List<String> _tags = [];
   final List<String> _privacyOptions = ['Public', 'Friends', 'Only Me'];
-
   final ImagePicker _picker = ImagePicker();
 
-  // Function to pick image from gallery
+  // Pick image from gallery
   Future<void> _pickImage() async {
     final XFile? selectedImage = await _picker.pickImage(source: ImageSource.gallery);
     setState(() {
@@ -29,24 +27,23 @@ class _PostingScreenState extends State<PostingScreen> {
     });
   }
 
-  // Function to remove selected image
+  // Remove selected image
   void _removeImage() {
     setState(() {
       _image = null;
     });
   }
 
-  // Function to update character count
+  // Update character count
   void _updateCharCount(String text) {
     setState(() {
       _charCount = text.length;
     });
   }
 
-  // Function to handle post submission
+  // Handle post submission
   void _submitPost() {
     if (_postController.text.isNotEmpty || _image != null) {
-      // Here you would add the logic to send the post data to your server
       print('Post submitted with content: ${_postController.text}');
       print('Privacy: $_privacy');
       if (_image != null) {
@@ -56,7 +53,6 @@ class _PostingScreenState extends State<PostingScreen> {
         print('Tags: ${_tags.join(', ')}');
       }
 
-      // Clear post after submission
       setState(() {
         _postController.clear();
         _image = null;
@@ -64,7 +60,6 @@ class _PostingScreenState extends State<PostingScreen> {
         _tags.clear();
       });
 
-      // Show confirmation message
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Post submitted successfully!')),
       );
@@ -75,7 +70,7 @@ class _PostingScreenState extends State<PostingScreen> {
     }
   }
 
-  // Function to add a tag (for hashtags or people tagging)
+  // Add a tag (for hashtags or mentions)
   void _addTag(String tag) {
     if (tag.isNotEmpty && !_tags.contains(tag)) {
       setState(() {
@@ -88,7 +83,16 @@ class _PostingScreenState extends State<PostingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Posten'),
+        backgroundColor: const Color(0xFF2E2E2E),
+        title: const Text(
+          'Posten',
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'Inter',
+            fontWeight: FontWeight.w600,
+            fontSize: 18,
+          ),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.send),
@@ -97,26 +101,37 @@ class _PostingScreenState extends State<PostingScreen> {
           ),
         ],
       ),
+      backgroundColor: const Color(0xFF252525), // Page background
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
             // Text Field for Post Content
-            TextField(
-              controller: _postController,
-              maxLength: _maxCharCount,
-              maxLines: 5,
-              decoration: const InputDecoration(
-                hintText: 'What\'s on your mind?',
-                border: OutlineInputBorder(),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: const Color(0xFF127EFC), width: 2),
+                borderRadius: BorderRadius.circular(20),
+                color: const Color(0xFF2E2E2E),
               ),
-              onChanged: _updateCharCount,
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                controller: _postController,
+                maxLength: _maxCharCount,
+                maxLines: 5,
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
+                  hintText: 'What\'s on your mind?',
+                  hintStyle: TextStyle(color: Color(0xFFBABABA)),
+                  border: InputBorder.none,
+                ),
+                onChanged: _updateCharCount,
+              ),
             ),
 
             // Character Count Indicator
             Align(
               alignment: Alignment.centerRight,
-              child: Text('$_charCount/$_maxCharCount'),
+              child: Text('$_charCount/$_maxCharCount', style: const TextStyle(color: Colors.white)),
             ),
 
             const SizedBox(height: 20),
@@ -124,10 +139,16 @@ class _PostingScreenState extends State<PostingScreen> {
             // Privacy Dropdown
             DropdownButtonFormField<String>(
               value: _privacy,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Who can see this post?',
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
+                filled: true,
+                fillColor: const Color(0xFF2E2E2E),
+                labelStyle: const TextStyle(color: Color(0xFFBABABA)),
               ),
+              dropdownColor: const Color(0xFF2E2E2E),
+              iconEnabledColor: Colors.white,
+              style: const TextStyle(color: Colors.white),
               onChanged: (String? newValue) {
                 setState(() {
                   _privacy = newValue!;
@@ -136,7 +157,7 @@ class _PostingScreenState extends State<PostingScreen> {
               items: _privacyOptions.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
-                  child: Text(value),
+                  child: Text(value, style: const TextStyle(color: Colors.white)),
                 );
               }).toList(),
             ),
@@ -162,16 +183,25 @@ class _PostingScreenState extends State<PostingScreen> {
                 : ElevatedButton.icon(
                     icon: const Icon(Icons.photo),
                     label: const Text('Add Image'),
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white, backgroundColor: const Color(0xFF127EFC),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    ),
                     onPressed: _pickImage,
                   ),
 
             const SizedBox(height: 20),
 
-            // Tags Input Field (e.g., for hashtags or mentions)
+            // Tags Input Field
             TextField(
+              style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
                 labelText: 'Add tags (e.g., #flutter, @user)',
+                labelStyle: TextStyle(color: Color(0xFFBABABA)),
                 border: OutlineInputBorder(),
+                filled: true,
+                fillColor: Color(0xFF2E2E2E),
               ),
               onSubmitted: _addTag,
             ),
@@ -181,16 +211,16 @@ class _PostingScreenState extends State<PostingScreen> {
             // Display added tags
             Wrap(
               spacing: 8.0,
-              children: _tags
-                  .map((tag) => Chip(
-                        label: Text(tag),
-                        onDeleted: () {
-                          setState(() {
-                            _tags.remove(tag);
-                          });
-                        },
-                      ))
-                  .toList(),
+              children: _tags.map((tag) {
+                return Chip(
+                  label: Text(tag),
+                  onDeleted: () {
+                    setState(() {
+                      _tags.remove(tag);
+                    });
+                  },
+                );
+              }).toList(),
             ),
 
             const SizedBox(height: 20),
@@ -199,11 +229,12 @@ class _PostingScreenState extends State<PostingScreen> {
             ElevatedButton.icon(
               icon: const Icon(Icons.send),
               label: const Text('Post'),
-              onPressed: _submitPost,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue, // Button color
+                backgroundColor: const Color(0xFF127EFC),
                 padding: const EdgeInsets.symmetric(vertical: 15),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               ),
+              onPressed: _submitPost,
             ),
           ],
         ),
