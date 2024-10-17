@@ -14,7 +14,7 @@ dependencies:
   http: ^1.2.2  # Correct indentation for http
   cupertino_icons: ^1.0.8
   image_picker: ^0.8.4+3  # Make sure image_picker is added
-  flutter_secure_storage: ^5.0.2
+  flutter_secure_storage: ^9.2.2
   graphql_flutter: ^5.0.0
 
 dev_dependencies:
