@@ -9,16 +9,24 @@ class LoginFooter extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {
-            // Handle forgot password
+            // Navigate to the principle page
+            Navigator.pushNamed(context, '/forgot');
           },
           child: const Text('Forgot password'),
         ),
-        const SizedBox(height: 8),
-        const Text(
+        TextButton(
+
+onPressed: () {
+            // Navigate to the principle page
+            Navigator.pushNamed(context, '/principle');
+          },
+           
+        child: const Text(
           'The PEER principle',
           style: TextStyle(
             color: Colors.white,
           ),
+        ),
         ),
       ],
     );

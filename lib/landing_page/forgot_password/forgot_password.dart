@@ -7,6 +7,7 @@ class ForgotPasswordErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       backgroundColor: const Color(0xFF252525), // Dark background color
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 96, horizontal: 16),
@@ -109,13 +110,19 @@ class ForgotPasswordErrorScreen extends StatelessWidget {
             const SizedBox(height: 16),
 
             // Footer Section
-            const Column(
+            Column(
               children: [
-                Text(
-                  "The PEER Principle",
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Color(0xFFFFFAFA), // White text color
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to 'principle' page
+                    Navigator.pushNamed(context, '/principle');
+                  },
+                  child: const Text(
+                    "The PEER Principle",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color.fromARGB(255, 69, 42, 223), // White text color
+                    ),
                   ),
                 ),
               ],
