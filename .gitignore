@@ -43,6 +43,14 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+#PC artifacts no to be send
+linux/*
+macos/*
+windows/*
+
 
 #.keystore file 
 *.keystore
+
+#VSCode stuff
+.vscode/*
