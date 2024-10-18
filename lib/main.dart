@@ -3,6 +3,7 @@ import 'package:peer_app/landing_page/forgot_password/forgot_password.dart';
 import 'package:peer_app/landing_page/login/login_page.dart';
 import 'package:peer_app/landing_page/peer_principle/principle.dart';
 import 'package:peer_app/landing_page/register_screen/register_screen.dart';
+import 'package:peer_app/newsfeed/comments/comments_screen.dart';
 import 'package:peer_app/newsfeed/newsfeed.dart';
 import 'package:peer_app/screens/chats.dart'; 
 import 'package:peer_app/screens/create_post.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/chats': (context) => ChatsScreen(),
         '/profile': (context) => ProfileScreen(),
         '/verify': (context) => VerifyScreen(),
+        '/comments': (context) => CommentScreen(),
 
   }
     );

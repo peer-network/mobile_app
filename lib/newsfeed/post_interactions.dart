@@ -9,7 +9,7 @@ class PostInteractions extends StatefulWidget {
     Key? key,
     required this.onLikeTap,
     required this.onCommentTap,
-    required this.onShareTap,
+    required this.onShareTap, required Null Function() onPressed,
   }) : super(key: key);
 
   @override

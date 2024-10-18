@@ -15,7 +15,7 @@ class NewsFeed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white,
         ),
         title: const Text(
@@ -36,7 +36,7 @@ class NewsFeed extends StatelessWidget {
             onFollowTap: () {
               print('Follow button tapped');
             },
-            backgroundImage: AssetImage('PeerSignet_Color_RGB.png'),
+            backgroundImage: const AssetImage('PeerSignet_Color_RGB.png'),
           ),
           PostContent(
             title: 'A Day in the Life',
@@ -52,12 +52,15 @@ class NewsFeed extends StatelessWidget {
             },
             onCommentTap: () {
               print('Comment button tapped');
+              // You can add navigation to the comments screen here, e.g.,
+              Navigator.pushNamed(context, '/comments');
             },
             onShareTap: () {
               print('Share button tapped');
-            },
+            }, onPressed: () {  },
           ),
-          PostDivider(),
+          const PostDivider(),
+          
           // Example Post 2
           PostHeader(
             username: 'jane_smith',
@@ -65,7 +68,7 @@ class NewsFeed extends StatelessWidget {
             onFollowTap: () {
               print('Follow button tapped');
             },
-            backgroundImage: AssetImage('PeerSignet_Color_RGB.png'),
+            backgroundImage: const AssetImage('PeerSignet_Color_RGB.png'),
           ),
           PostContent(
             title: 'Exploring the Mountains',
@@ -81,12 +84,14 @@ class NewsFeed extends StatelessWidget {
             },
             onCommentTap: () {
               print('Comment button tapped');
+              // Handle comment button press (navigation, etc.)
             },
             onShareTap: () {
               print('Share button tapped');
-            },
+            }, onPressed: () {  },
           ),
-          PostDivider(),
+          const PostDivider(),
+          
           // Add more posts here in the same structure
         ],
       ),
