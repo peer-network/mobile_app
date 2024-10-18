@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peer_app/newsfeed/like_animation.dart';
 import 'package:peer_app/newsfeed/post_header.dart';
 import 'package:peer_app/newsfeed/post_content.dart';
 import 'package:peer_app/newsfeed/post_footer.dart';
@@ -20,10 +21,9 @@ class NewsFeed extends StatelessWidget {
         title: const Text(
           'News Feed',
           style: TextStyle(
-          color: Colors.white,
-          )
+            color: Colors.white,
           ),
-        
+        ),
         backgroundColor: const Color(0xFF252525),
       ),
       backgroundColor: const Color(0xFF252525),
@@ -36,12 +36,11 @@ class NewsFeed extends StatelessWidget {
             onFollowTap: () {
               print('Follow button tapped');
             },
-              backgroundImage: AssetImage('PeerSignet_Color_RGB.png'), // Add this line
+            backgroundImage: AssetImage('PeerSignet_Color_RGB.png'),
           ),
           PostContent(
             title: 'A Day in the Life',
-            content:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent accumsan orci sed nulla...',
+            content: 'hier sollte die api ziehen was alles rein soll',
           ),
           PostStats(
             likesCount: 120,
@@ -70,8 +69,7 @@ class NewsFeed extends StatelessWidget {
           ),
           PostContent(
             title: 'Exploring the Mountains',
-            content:
-                'Today, I went hiking in the mountains. The view from the top was absolutely breathtaking...',
+            content: 'Today, I went hiking in the mountains. The view from the top was absolutely breathtaking...',
           ),
           PostStats(
             likesCount: 200,
@@ -96,5 +94,3 @@ class NewsFeed extends StatelessWidget {
     );
   }
 }
-
-

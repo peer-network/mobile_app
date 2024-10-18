@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LandingPage(), // Set the LandingPage as the home screen
+      home: const NewsFeed(), // Set the LandingPage as the home screen
     routes: {
         '/register': (context) => const RegisterScreen(),
         '/landing': (context) => const LandingPage(),
